@@ -1,0 +1,2 @@
+function r(e,o=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&o.push(e.name),o.push("default");let t={};for(let n of o){t[n]=e;try{window[n]=e}catch{}}try{globalThis.eval("module").exports=t}catch{}return t}var a=r(r,["eobj"]).default;export{a as default};
+//# sourceMappingURL=eobj.mjs.map
