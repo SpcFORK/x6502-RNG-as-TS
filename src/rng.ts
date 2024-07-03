@@ -21,20 +21,13 @@ SKIP_MASK:
 
 import eobj from './eobj';
 
-function* B8RNG255(seed: number, core: (core?: any) => {}): Generator<number, { error: unknown, type: string, LAST_VAL: unknown }, number> {
+import { rol } from './asm'
+
+function* B8RNG255(seed: number, lim = -1): Generator<number, { error: unknown, type: string, LAST_VAL: unknown }, number> {
   if (seed === undefined || seed === 0)
     throw new Error("Seed cannot be 0 or Falsey!");
   if (seed > 255 || seed < 0)
     throw new Error("Seed must be between 0 and 255!");
-
-  function rol(value: number, carry: boolean): { result: number; carry: boolean; } {
-    value &= 0xFF;
-    const msb = (value >> 7) & 1;
-    let result = (value << 1) & 0xFF;
-    if (carry) result |= 1;
-    carry = !!msb;
-    return { result, carry };
-  }
 
   let y: number, a: number, carryG: boolean, SEED: number;
   function init(): number {
@@ -63,21 +56,11 @@ function* B8RNG255(seed: number, core: (core?: any) => {}): Generator<number, { 
   }
 
   let LAST_VAL: number | undefined = void 0;
-  let CROSSCONTAM: unknown;
-  let state = new class {
-    on = true
-    lastVal = () => LAST_VAL
-    cross = () => CROSSCONTAM
-  }
-
-  while (state.on) try {
-    LAST_VAL = init();
-    CROSSCONTAM = yield LAST_VAL;
-    core?.(state);
-    if (typeof CROSSCONTAM == 'boolean') state.on = false;
-    else if (typeof CROSSCONTAM == 'number') SEED = CROSSCONTAM;
-  } catch (e) {
-    return { error: e, type: 'error', LAST_VAL }
+  let I: number = lim;
+  let INP;
+  G: while (!!I--) while (INP = yield LAST_VAL = init()) {
+    if (typeof INP == 'boolean') if (INP) break G;
+    else if (typeof INP === 'number') SEED = INP;
   }
 
   return { error: void 0, type: 'success', LAST_VAL }

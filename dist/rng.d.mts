@@ -1,4 +1,4 @@
-declare function B8RNG255(seed: number, core: (core?: any) => {}): Generator<number, {
+declare function B8RNG255(seed: number, lim?: number): Generator<number, {
     error: unknown;
     type: string;
     LAST_VAL: unknown;

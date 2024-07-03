@@ -1,2 +1,47 @@
-function m(e,u=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&u.push(e.name),u.push("default");let l={};for(let n of u){l[n]=e;try{window[n]=e}catch{}}try{globalThis.eval("module").exports=l}catch{}return l}var y=m(m,["eobj"]).default;function*x(e,u){if(e===void 0||e===0)throw new Error("Seed cannot be 0 or Falsey!");if(e>255||e<0)throw new Error("Seed must be between 0 and 255!");function l(r,i){r&=255;let p=r>>7&1,d=r<<1&255;return i&&(d|=1),i=!!p,{result:d,carry:i}}let n,t,c,o;function w(){return o||=e&255,n=8,t=o&255,c=!1,s()}function s(){t<<=1;let{result:r,carry:i}=l(t>>1&255,c);return[t,c]=[r,i],c&&(t^=57),F()}function F(){return n--,n!==0?s():(o=o&-256|t&255,o)}let a,f,b=new class{on=!0;lastVal=()=>a;cross=()=>f};for(;b.on;)try{a=w(),f=yield a,u?.(b),typeof f=="boolean"?b.on=!1:typeof f=="number"&&(o=f)}catch(r){return{error:r,type:"error",LAST_VAL:a}}return{error:void 0,type:"success",LAST_VAL:a}}var E=y(x,["B8RNG255"]).default;export{E as default};
+
+/**
+--- SpcFORK ---
+••¡¡¡¡••••ïï++••¡¡¡¡••••ïï++••¦¦¬¬||||¡¡¡¡¯¯¯¯ªª÷÷¯¯\\||{{••••••ïï••††\\¬¬¦¦¦¦}}
+ïï++••¡¡¬¬{{••ïï++••¡¡¬¬{{••ïï++¡¡((¡¡¡¡¯¯¯¯ªªªª))))÷÷¯¯\\||||||{{ïï••††\\¬¬¦¦¦¦
+{{••ïï++¬¬||||{{••ïï++¬¬||||{{••ïï¬¬¡¡¯¯¯¯ªªªª))))••ii))÷÷¯¯¯¯¯¯\\{{ïï••††\\¬¬¦¦
+\\||{{••ïï((¡¡\\||{{••ïï((¡¡\\||{{••((¬¬ªªªª))))••••¬¬¬¬ii))))))÷÷\\{{ïï••††\\¬¬
+¯¯¯¯\\||{{¬¬¡¡¯¯¯¯\\||{{¬¬¡¡¯¯¯¯\\||¬¬¡¡ªª))))••••¬¬¬¬¡¡\\¬¬¬¬¬¬ii÷÷\\{{ïï••††\\
+¬¬ªª÷÷¯¯\\||((¬¬ªª÷÷¯¯\\||((¬¬ªª÷÷¯¯\\||¬¬””••••¬¬¬¬¡¡¡¡¦¦¦¦¦¦¦¦\\ii÷÷\\{{ïï••††
+¡¡ªª))))÷÷¯¯\\¡¡ªª))))÷÷¯¯\\¡¡ªª))))÷÷¯¯¡¡ªª••¬¬¬¬¡¡¡¡¦¦¦¦cccc^^÷÷\\ii÷÷\\{{ïï••
+||¬¬””••ii))÷÷¯¯¯¯””••ii))÷÷¯¯¯¯””••ii))÷÷¯¯””{{¡¡¡¡¦¦¦¦ccccÙÙcc^^÷÷\\ii÷÷\\{{ïï
+¯¯¡¡ªª••¬¬¬¬ii))))))••¬¬¬¬ii))))))••¬¬¬¬ii))))••¡¡¦¦¦¦ccccÿÿÙÙÿÿcc^^÷÷\\ii÷÷\\{{
+ªª÷÷¯¯””{{¡¡\\¬¬¬¬¬¬ii{{¡¡\\¬¬¬¬¬¬ii{{¡¡\\¬¬¬¬¬¬¬¬¬¬ccccððððÙÙññÙÙcc^^¦¦¬¬))¯¯||
+ªª))))ªª••¡¡¦¦¦¦¦¦¦¦\\••¡¡¦¦¦¦¦¦¦¦\\¬¬¡¡¦¦¦¦¦¦¦¦¦¦¦¦¾¾ððððÙÙððÙÙññÙÙcc¦¦¬¬))¯¯||
+))))••ii)){{¬¬cccc^^¦¦\\¬¬¬¬cccc^^¦¦¦¦¦¦¦¦cccc^^¦¦cccccccccccccccccccc¦¦¬¬))¯¯||
+””••••¬¬¬¬••¡¡¾¾ððcc÷÷¦¦¦¦¦¦¾¾ððcc¦¦¬¬cccc¾¾ððcc÷÷¾¾ððððððððððððððððcc¦¦¬¬))¯¯||
+ªª••¬¬¬¬¡¡\\¡¡¾¾ððccccccccccccððcc÷÷¦¦¾¾ððccððccccccððððððððððððððððcc¦¦¬¬))¯¯||
+¬¬””{{¡¡¡¡¦¦¦¦¾¾ððððccððððccððððccccccccccccccccððððððððcc¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬))¯¯||
+¡¡ªª••¡¡¦¦¦¦ccccccððððððððððððcccc¾¾ððððððccððccððððððððcc¦¦¡¡¡¡¡¡¡¡¬¬¦¦\\ii÷÷\\
+((¬¬””{{¬¬ccccððððððððððððððððððððccccccccccððccððððcc¾¾cc¦¦¬¬••••••{{¡¡¡¡¬¬))¯¯
+¬¬¡¡ªª••¡¡¾¾ððcc¾¾ððccððððccððcc¾¾ððccððððccððccððððcccc^^¦¦\\¬¬¬¬ii””••{{¬¬ii÷÷
+¡¡((¬¬””{{¬¬¾¾cc¦¦¾¾cccccccccccc^^ccccccððccððccððððððððcc÷÷¦¦¦¦¦¦\\iiªª””••••))
+}}¡¡((¬¬””{{¡¡¬¬¦¦ccccððððcc¾¾ððccccððððccccððccððððððððcccccccc^^¦¦\\ii÷÷ªª””))
+ïï}}¡¡((¬¬””••{{¬¬¾¾ððððððððccccððððccccððccððcc¾¾¾¾ððððððððððððcc÷÷¦¦\\ii÷÷¬¬ªª
+//ïï}}¡¡((¬¬””••¡¡¾¾ððððððððccððccccððððccccððcc¦¦¾¾ððððððððððððcccc^^¦¦¬¬))¯¯¡¡
+||++««¦¦¬¬¡¡ªª••¡¡ccccððððccccccððððccccððððcccc¦¦¬¬¾¾¾¾¾¾¾¾ððððððððcc¦¦¬¬))¯¯||
+||++««¦¦¬¬¡¡ªª••¡¡¾¾ððððððððccððcc¾¾ððððcc¾¾cc¦¦÷÷¦¦¦¦¦¦¦¦¾¾ððððððððcc¦¦¬¬))¯¯||
+¡¡//ïï}}¡¡((¬¬””{{¬¬¾¾¾¾cccccccccccc¾¾¾¾cc÷÷¦¦÷÷¦¦cccc^^cccc¾¾¾¾ððððcc¦¦¬¬))¯¯||
+««¡¡//ïï}}¡¡((¬¬””{{¡¡¬¬¾¾ððccððccððcc÷÷¦¦cccccc^^¾¾ððcc¾¾ððcc¾¾ððððcc¦¦¬¬))¯¯||
+ii««¡¡//ïï}}¡¡((¬¬””{{¡¡¾¾ððccððccððcccc^^¾¾ððððcccc¾¾cccc¾¾cc¾¾ððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððððððððððcc¾¾ððððccððccccððccccccððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððcccccccccc¾¾ððððcc¾¾ððððccccððððððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððððððððððcc¾¾ððððccccccccccccððððððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððcccccccccccccc¦¦¾¾¾¾ððððððððððððððððcc¾¾cc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððððððððððððððcc¦¦¬¬¾¾ððððððððððððððððcc¦¦¬¬¦¦\\ii÷÷\\
+ïïii««¡¡//ïï}}¡¡((¬¬””{{¬¬¾¾¾¾¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬¬¬¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬¡¡¡¡¬¬))¯¯
+——ïïii««¡¡//ïï}}¡¡((¬¬””{{¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬¦¦\\{{¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬¦¦\\••{{¬¬ii÷÷
+————ïïii««¡¡//ïï}}¡¡((¬¬””••••••••••••••{{¡¡¡¡¬¬••••••••••••••••{{¡¡¡¡¬¬))••••))
+——————ïïii««¡¡//ïï}}¡¡((¬¬ªªªªªªªªªªªªªª””••{{¬¬iiªªªªªªªªªªªªªª””••{{¬¬iiªª””))
+————————ïïii««¡¡//ïï}}¡¡((¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬ªª””••••))¯¯¡¡¡¡¡¡¡¡¡¡¬¬ªª””••••))¯¯ªª
+——————————ïïii««¡¡//ïï}}¡¡¬¬¬¬¬¬¬¬¬¬¬¬¬¬((¡¡¬¬ªª””))÷÷\\¬¬¬¬¬¬¬¬((¡¡¬¬ªª””))÷÷¡¡
+————————————ïïii««¡¡//ïï}}¦¦¦¦¦¦¦¦¦¦¦¦¦¦¡¡¬¬((¡¡¬¬ªªªª¯¯||••++¦¦¡¡¬¬((¡¡¬¬ªªªª¯¯
+——————————————ïïii««¡¡//ïï««««««««««««««}}¦¦¡¡¬¬((¡¡¬¬¯¯\\{{ïï••}}¦¦¡¡¬¬((¡¡¬¬¯¯
+*/
+
+function a(e,n=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&n.push(e.name),n.push("default");let o={};for(let r of n){o[r]=e;try{window[r]=e}catch{}}try{globalThis.eval("module").exports=o}catch{}return o}var b=a(a,["eobj"]).default;function m(e,n){e&=255;let o=e>>7&1,r=e<<1&255;return n&&(r|=1),n=!!o,{result:r,carry:n}}function*w(e,n=-1){if(e===void 0||e===0)throw new Error("Seed cannot be 0 or Falsey!");if(e>255||e<0)throw new Error("Seed must be between 0 and 255!");let o,r,i,t;function c(){return t||=e&255,o=8,r=t&255,i=!1,l()}function l(){r<<=1;let{result:s,carry:F}=m(r>>1&255,i);return[r,i]=[s,F],i&&(r^=57),d()}function d(){return o--,o!==0?l():(t=t&-256|r&255,t)}let f,p=n,u;e:for(;p--;)for(;u=yield f=c();)if(typeof u=="boolean"){if(u)break e;typeof u=="number"&&(t=u)}return{error:void 0,type:"success",LAST_VAL:f}}var S=b(w,["B8RNG255"]).default;export{S as default};
 //# sourceMappingURL=rng.mjs.map

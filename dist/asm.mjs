@@ -43,5 +43,5 @@ ii««¡¡//ïï}}¡¡((¬¬””{{¡¡¾¾ððccððccððcccc^^¾¾ððððcc
 ——————————————ïïii««¡¡//ïï««««««««««««««}}¦¦¡¡¬¬((¡¡¬¬¯¯\\{{ïï••}}¦¦¡¡¬¬((¡¡¬¬¯¯
 */
 
-"use strict";(()=>{function a(e,n=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&n.push(e.name),n.push("default");let o={};for(let r of n){o[r]=e;try{window[r]=e}catch{}}try{globalThis.eval("module").exports=o}catch{}return o}var b=a(a,["eobj"]).default;function m(e,n){e&=255;let o=e>>7&1,r=e<<1&255;return n&&(r|=1),n=!!o,{result:r,carry:n}}function*w(e,n=-1){if(e===void 0||e===0)throw new Error("Seed cannot be 0 or Falsey!");if(e>255||e<0)throw new Error("Seed must be between 0 and 255!");let o,r,i,t;function c(){return t||=e&255,o=8,r=t&255,i=!1,l()}function l(){r<<=1;let{result:s,carry:F}=m(r>>1&255,i);return[r,i]=[s,F],i&&(r^=57),d()}function d(){return o--,o!==0?l():(t=t&-256|r&255,t)}let f,p=n,u;e:for(;p--;)for(;u=yield f=c();)if(typeof u=="boolean"){if(u)break e;typeof u=="number"&&(t=u)}return{error:void 0,type:"success",LAST_VAL:f}}var S=b(w,["B8RNG255"]).default;})();
-//# sourceMappingURL=rng.global.js.map
+function r(n,o){n&=255;let t=n>>7&1,e=n<<1&255;return o&&(e|=1),o=!!t,{result:e,carry:o}}export{r as rol};
+//# sourceMappingURL=asm.mjs.map

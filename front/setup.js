@@ -1,6 +1,7 @@
-/** @type {Generator<number, any, number>} */
-let gen = B8RNG255(1, (state) => {
-  console.log(state.lastVal());
-})
+const ele = document.querySelector('#rng')
 
-gen.next();
+/** @type {Generator<number, any, number>} */
+let gen = quickB8RNG255(22, 10)
+
+let vals = [...gen]
+ele.innerHTML = vals.join(', ')

@@ -1,2 +1,47 @@
-"use strict";var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.prototype.hasOwnProperty;var A=(e,r)=>{for(var t in r)s(e,t,{get:r[t],enumerable:!0})},C=(e,r,t,o)=>{if(r&&typeof r=="object"||typeof r=="function")for(let n of S(r))!E.call(e,n)&&n!==t&&s(e,n,{get:()=>r[n],enumerable:!(o=h(r,n))||o.enumerable});return e};var R=e=>C(s({},"__esModule",{value:!0}),e);var L={};A(L,{default:()=>G});module.exports=R(L);function y(e,r=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&r.push(e.name),r.push("default");let t={};for(let o of r){t[o]=e;try{window[o]=e}catch{}}try{globalThis.eval("module").exports=t}catch{}return t}var w=y(y,["eobj"]).default;function*k(e,r){if(e===void 0||e===0)throw new Error("Seed cannot be 0 or Falsey!");if(e>255||e<0)throw new Error("Seed must be between 0 and 255!");function t(u,i){u&=255;let x=u>>7&1,m=u<<1&255;return i&&(m|=1),i=!!x,{result:m,carry:i}}let o,n,c,l;function F(){return l||=e&255,o=8,n=l&255,c=!1,d()}function d(){n<<=1;let{result:u,carry:i}=t(n>>1&255,c);return[n,c]=[u,i],c&&(n^=57),p()}function p(){return o--,o!==0?d():(l=l&-256|n&255,l)}let a,f,b=new class{on=!0;lastVal=()=>a;cross=()=>f};for(;b.on;)try{a=F(),f=yield a,r?.(b),typeof f=="boolean"?b.on=!1:typeof f=="number"&&(l=f)}catch(u){return{error:u,type:"error",LAST_VAL:a}}return{error:void 0,type:"success",LAST_VAL:a}}var G=w(k,["B8RNG255"]).default;
+
+/**
+--- SpcFORK ---
+••¡¡¡¡••••ïï++••¡¡¡¡••••ïï++••¦¦¬¬||||¡¡¡¡¯¯¯¯ªª÷÷¯¯\\||{{••••••ïï••††\\¬¬¦¦¦¦}}
+ïï++••¡¡¬¬{{••ïï++••¡¡¬¬{{••ïï++¡¡((¡¡¡¡¯¯¯¯ªªªª))))÷÷¯¯\\||||||{{ïï••††\\¬¬¦¦¦¦
+{{••ïï++¬¬||||{{••ïï++¬¬||||{{••ïï¬¬¡¡¯¯¯¯ªªªª))))••ii))÷÷¯¯¯¯¯¯\\{{ïï••††\\¬¬¦¦
+\\||{{••ïï((¡¡\\||{{••ïï((¡¡\\||{{••((¬¬ªªªª))))••••¬¬¬¬ii))))))÷÷\\{{ïï••††\\¬¬
+¯¯¯¯\\||{{¬¬¡¡¯¯¯¯\\||{{¬¬¡¡¯¯¯¯\\||¬¬¡¡ªª))))••••¬¬¬¬¡¡\\¬¬¬¬¬¬ii÷÷\\{{ïï••††\\
+¬¬ªª÷÷¯¯\\||((¬¬ªª÷÷¯¯\\||((¬¬ªª÷÷¯¯\\||¬¬””••••¬¬¬¬¡¡¡¡¦¦¦¦¦¦¦¦\\ii÷÷\\{{ïï••††
+¡¡ªª))))÷÷¯¯\\¡¡ªª))))÷÷¯¯\\¡¡ªª))))÷÷¯¯¡¡ªª••¬¬¬¬¡¡¡¡¦¦¦¦cccc^^÷÷\\ii÷÷\\{{ïï••
+||¬¬””••ii))÷÷¯¯¯¯””••ii))÷÷¯¯¯¯””••ii))÷÷¯¯””{{¡¡¡¡¦¦¦¦ccccÙÙcc^^÷÷\\ii÷÷\\{{ïï
+¯¯¡¡ªª••¬¬¬¬ii))))))••¬¬¬¬ii))))))••¬¬¬¬ii))))••¡¡¦¦¦¦ccccÿÿÙÙÿÿcc^^÷÷\\ii÷÷\\{{
+ªª÷÷¯¯””{{¡¡\\¬¬¬¬¬¬ii{{¡¡\\¬¬¬¬¬¬ii{{¡¡\\¬¬¬¬¬¬¬¬¬¬ccccððððÙÙññÙÙcc^^¦¦¬¬))¯¯||
+ªª))))ªª••¡¡¦¦¦¦¦¦¦¦\\••¡¡¦¦¦¦¦¦¦¦\\¬¬¡¡¦¦¦¦¦¦¦¦¦¦¦¦¾¾ððððÙÙððÙÙññÙÙcc¦¦¬¬))¯¯||
+))))••ii)){{¬¬cccc^^¦¦\\¬¬¬¬cccc^^¦¦¦¦¦¦¦¦cccc^^¦¦cccccccccccccccccccc¦¦¬¬))¯¯||
+””••••¬¬¬¬••¡¡¾¾ððcc÷÷¦¦¦¦¦¦¾¾ððcc¦¦¬¬cccc¾¾ððcc÷÷¾¾ððððððððððððððððcc¦¦¬¬))¯¯||
+ªª••¬¬¬¬¡¡\\¡¡¾¾ððccccccccccccððcc÷÷¦¦¾¾ððccððccccccððððððððððððððððcc¦¦¬¬))¯¯||
+¬¬””{{¡¡¡¡¦¦¦¦¾¾ððððccððððccððððccccccccccccccccððððððððcc¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬))¯¯||
+¡¡ªª••¡¡¦¦¦¦ccccccððððððððððððcccc¾¾ððððððccððccððððððððcc¦¦¡¡¡¡¡¡¡¡¬¬¦¦\\ii÷÷\\
+((¬¬””{{¬¬ccccððððððððððððððððððððccccccccccððccððððcc¾¾cc¦¦¬¬••••••{{¡¡¡¡¬¬))¯¯
+¬¬¡¡ªª••¡¡¾¾ððcc¾¾ððccððððccððcc¾¾ððccððððccððccððððcccc^^¦¦\\¬¬¬¬ii””••{{¬¬ii÷÷
+¡¡((¬¬””{{¬¬¾¾cc¦¦¾¾cccccccccccc^^ccccccððccððccððððððððcc÷÷¦¦¦¦¦¦\\iiªª””••••))
+}}¡¡((¬¬””{{¡¡¬¬¦¦ccccððððcc¾¾ððccccððððccccððccððððððððcccccccc^^¦¦\\ii÷÷ªª””))
+ïï}}¡¡((¬¬””••{{¬¬¾¾ððððððððccccððððccccððccððcc¾¾¾¾ððððððððððððcc÷÷¦¦\\ii÷÷¬¬ªª
+//ïï}}¡¡((¬¬””••¡¡¾¾ððððððððccððccccððððccccððcc¦¦¾¾ððððððððððððcccc^^¦¦¬¬))¯¯¡¡
+||++««¦¦¬¬¡¡ªª••¡¡ccccððððccccccððððccccððððcccc¦¦¬¬¾¾¾¾¾¾¾¾ððððððððcc¦¦¬¬))¯¯||
+||++««¦¦¬¬¡¡ªª••¡¡¾¾ððððððððccððcc¾¾ððððcc¾¾cc¦¦÷÷¦¦¦¦¦¦¦¦¾¾ððððððððcc¦¦¬¬))¯¯||
+¡¡//ïï}}¡¡((¬¬””{{¬¬¾¾¾¾cccccccccccc¾¾¾¾cc÷÷¦¦÷÷¦¦cccc^^cccc¾¾¾¾ððððcc¦¦¬¬))¯¯||
+««¡¡//ïï}}¡¡((¬¬””{{¡¡¬¬¾¾ððccððccððcc÷÷¦¦cccccc^^¾¾ððcc¾¾ððcc¾¾ððððcc¦¦¬¬))¯¯||
+ii««¡¡//ïï}}¡¡((¬¬””{{¡¡¾¾ððccððccððcccc^^¾¾ððððcccc¾¾cccc¾¾cc¾¾ððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððððððððððcc¾¾ððððccððccccððccccccððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððcccccccccc¾¾ððððcc¾¾ððððccccððððððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððccððððððððððcc¾¾ððððccccccccccccððððððððcc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððcccccccccccccc¦¦¾¾¾¾ððððððððððððððððcc¾¾cc¦¦¬¬))¯¯||
+))¡¡÷÷||++««¦¦¬¬¡¡ªª••¡¡¾¾ððððððððððððððcc¦¦¬¬¾¾ððððððððððððððððcc¦¦¬¬¦¦\\ii÷÷\\
+ïïii««¡¡//ïï}}¡¡((¬¬””{{¬¬¾¾¾¾¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬¬¬¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾cc¦¦¬¬¡¡¡¡¬¬))¯¯
+——ïïii««¡¡//ïï}}¡¡((¬¬””{{¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬¦¦\\{{¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬¦¦\\••{{¬¬ii÷÷
+————ïïii««¡¡//ïï}}¡¡((¬¬””••••••••••••••{{¡¡¡¡¬¬••••••••••••••••{{¡¡¡¡¬¬))••••))
+——————ïïii««¡¡//ïï}}¡¡((¬¬ªªªªªªªªªªªªªª””••{{¬¬iiªªªªªªªªªªªªªª””••{{¬¬iiªª””))
+————————ïïii««¡¡//ïï}}¡¡((¡¡¡¡¡¡¡¡¡¡¡¡¡¡¬¬ªª””••••))¯¯¡¡¡¡¡¡¡¡¡¡¬¬ªª””••••))¯¯ªª
+——————————ïïii««¡¡//ïï}}¡¡¬¬¬¬¬¬¬¬¬¬¬¬¬¬((¡¡¬¬ªª””))÷÷\\¬¬¬¬¬¬¬¬((¡¡¬¬ªª””))÷÷¡¡
+————————————ïïii««¡¡//ïï}}¦¦¦¦¦¦¦¦¦¦¦¦¦¦¡¡¬¬((¡¡¬¬ªªªª¯¯||••++¦¦¡¡¬¬((¡¡¬¬ªªªª¯¯
+——————————————ïïii««¡¡//ïï««««««««««««««}}¦¦¡¡¬¬((¡¡¬¬¯¯\\{{ïï••}}¦¦¡¡¬¬((¡¡¬¬¯¯
+*/
+
+"use strict";var l=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.prototype.hasOwnProperty;var E=(e,r)=>{for(var o in r)l(e,o,{get:r[o],enumerable:!0})},S=(e,r,o,n)=>{if(r&&typeof r=="object"||typeof r=="function")for(let t of x(r))!h.call(e,t)&&t!==o&&l(e,t,{get:()=>r[t],enumerable:!(n=y(r,t))||n.enumerable});return e};var k=e=>S(l({},"__esModule",{value:!0}),e);var L={};E(L,{default:()=>G});module.exports=k(L);function b(e,r=[]){if(!e)throw new Error("No object provided to eobj.");e?.name&&r.push(e.name),r.push("default");let o={};for(let n of r){o[n]=e;try{window[n]=e}catch{}}try{globalThis.eval("module").exports=o}catch{}return o}var m=b(b,["eobj"]).default;function c(e,r){e&=255;let o=e>>7&1,n=e<<1&255;return r&&(n|=1),r=!!o,{result:n,carry:r}}function*A(e,r=-1){if(e===void 0||e===0)throw new Error("Seed cannot be 0 or Falsey!");if(e>255||e<0)throw new Error("Seed must be between 0 and 255!");let o,n,t,u;function d(){return u||=e&255,o=8,n=u&255,t=!1,f()}function f(){n<<=1;let{result:F,carry:w}=c(n>>1&255,t);return[n,t]=[F,w],t&&(n^=57),p()}function p(){return o--,o!==0?f():(u=u&-256|n&255,u)}let a,s=r,i;e:for(;s--;)for(;i=yield a=d();)if(typeof i=="boolean"){if(i)break e;typeof i=="number"&&(u=i)}return{error:void 0,type:"success",LAST_VAL:a}}var G=m(A,["B8RNG255"]).default;
 //# sourceMappingURL=rng.js.map
